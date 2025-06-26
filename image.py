@@ -9,9 +9,21 @@ def rescale(frame, scale):
 
 img = cv.imread("screen.png")
 
-img = rescale(img, 0.5)
+#grayscale
+gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
+#gausian blur
+blur = cv.GaussianBlur(img,(3,3), cv.BORDER_DEFAULT)
+
+#edge cascade - Canny
+edges = cv.Canny(img, 125, 175)
+
+#rescaling
+scaled = rescale(img, 0.5)
+
+#rectangle
 cv.rectangle(img,(25,25),(100,200),(255,255,255))
+
 
 
 cv.imshow("image", img)
