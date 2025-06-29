@@ -10,6 +10,8 @@ def rescale(frame, scale):
 #reading video
 video = cv.VideoCapture('video.mp4')
 
+video = cv.VideoCapture(0)
+
 while True:
     is_okay, frame = video.read()
     if is_okay != True:
